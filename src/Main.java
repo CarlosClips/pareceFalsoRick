@@ -1,5 +1,9 @@
 import java.util.Scanner;
 public class Main {
+    public static int VerfiicarPalavras(String msg){
+        String[] palavras = msg.split("[\\s.,!?;:]+");
+        return 5;
+    };
     public static void main(String[] args) {
         System.out.println("Olá, este é o programa PareceFalso!");
         System.out.println("Este programa tem o intuito de te ajudar e auxiliar para não cair em golpes \n");
@@ -34,6 +38,7 @@ public class Main {
                             "oficiais, e jamais compartilhe senhas ou códigos de confirmação. Orientações \n" +
                             "adicionais e práticas de segurança ajudam a manter seus dados e dinheiro protegidos\n" +
                             "no dia a dia. \n");
+
                 case 4:
                     System.out.println("Saindo do programa...");
                     break;
@@ -42,4 +47,6 @@ public class Main {
             }
         }
     }
+
+
 }

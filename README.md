@@ -12,3 +12,7 @@ Além disso, temos como objetivo também apresentar dicas e orientações para n
 - Separamos três niveis de gravidade se a mensagem for suspeita: risco baixo, médio e alto. Se a mensagem não for suspeita, irá ser
 categorizada como "Mensagem Segura"
 
+## Fluxo do Sistema
+
+![Fluxo do Sistema](docs/fluxo_msg.drawio.svg)
+
