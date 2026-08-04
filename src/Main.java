@@ -1,5 +1,27 @@
+
+import java.util.Arrays;
 import java.util.Scanner;
+
+
 public class Main {
+    public static String[] processamentoMsg(String msg) {
+        String msgMinuscula = msg.toLowerCase();
+        String semPontuacao = msgMinuscula.replaceAll("\\p{P}", "");
+        String[] palavras = semPontuacao.split(" ");
+        return palavras;
+    }
+    public static boolean processamentodadospessoais(String[] msg){
+        return Arrays.stream(msg).anyMatch(PalavrasGolpe.DADOS_PESSOAIS::contains);
+    }
+
+    public static boolean acaousuario(String[] msg) {
+        return Arrays.stream(msg).anyMatch(PalavrasGolpe.ACAO_USUARIO::contains);
+    }
+
+    public static boolean ameacas(String[] msg) {
+        return Arrays.stream(msg).anyMatch(PalavrasGolpe.AMEACAS::contains);
+    }
+
     public static void main(String[] args) {
         System.out.println("Olá, este é o programa PareceFalso!");
         System.out.println("Este programa tem o intuito de te ajudar e auxiliar para não cair em golpes \n");
@@ -20,13 +42,14 @@ public class Main {
                 case 1:
                     System.out.println("Opção 1 - Indentificar mensagem suspeita de golpe");
                     System.out.print("Digite a mensagem que você acha suspeita: ");
-                    String mnsg = scanner.next();
-
+                    String mnsg = scanner.nextLine();
+                    break;
 
                 case 2:
                     System.out.println("Opção 2 - Indentificar URL suspeita de golpe");
                     System.out.print("Digite a URL que você acha suspeita: ");
-                    String url = scanner.next();
+                    String url = scanner.nextLine();
+                    break;
 
                 case 3:
                     System.out.println("Opção 3 - Dicas para não em mensagens fraudulentas");
@@ -34,6 +57,7 @@ public class Main {
                             "oficiais, e jamais compartilhe senhas ou códigos de confirmação. Orientações \n" +
                             "adicionais e práticas de segurança ajudam a manter seus dados e dinheiro protegidos\n" +
                             "no dia a dia. \n");
+                    break;
                 case 4:
                     System.out.println("Saindo do programa...");
                     break;
