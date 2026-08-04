@@ -1,5 +1,6 @@
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 public class Main {
     public static String[] processamentoMsg(String msg){
@@ -9,10 +10,32 @@ public class Main {
         return palavras;
     };
 
+    public static boolean verificarPalavrasGolpe(String[] msg){
+        return Arrays.stream(msg).anyMatch(PalavrasGolpe.GOLPE::contains);
+    };
+
+    public static boolean verificarInstituicoes(String[] msg){
+        return Arrays.stream(msg).anyMatch(PalavrasGolpe.INSTITUICOES::contains);
+    };
+
+    public static boolean verificarPalavrasUrgencias(String[] msg){
+        return Arrays.stream(msg).anyMatch(PalavrasGolpe.URGENCIA::contains);
+    };
+
+    public static void analiseDeRisco(String msg){
+
+    }
+
+
+
 
     public static void main(String[] args) {
         System.out.println("Olá, este é o programa PareceFalso!");
         System.out.println("Este programa tem o intuito de te ajudar e auxiliar para não cair em golpes \n");
+        String [] palavrasProcessadas = processamentoMsg("frase");
+        System.out.println(verificarPalavrasGolpe(processamentoMsg("sim")));
+        System.out.println(verificarInstituicoes(processamentoMsg("gov")));
+        System.out.println(verificarPalavrasUrgencias(processamentoMsg("hoje")));
         Scanner scanner = new Scanner(System.in);
 
         int opcao = 0;
@@ -54,6 +77,5 @@ public class Main {
             }
         }
     }
-
 
 }
