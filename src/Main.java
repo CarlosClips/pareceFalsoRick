@@ -37,6 +37,7 @@ public class Main {
                     System.out.println("Opção 2 - Indentificar URL suspeita de golpe");
                     System.out.print("Digite a URL que você acha suspeita: ");
                     String url = scanner.next();
+                    System.out.println(URLSuspeita.avaliarRisco(url) + "\n");
 
                 case 3:
                     System.out.println("Opção 3 - Dicas para não em mensagens fraudulentas");
