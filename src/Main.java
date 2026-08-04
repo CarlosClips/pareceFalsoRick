@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -25,6 +26,10 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Olá, este é o programa PareceFalso!");
         System.out.println("Este programa tem o intuito de te ajudar e auxiliar para não cair em golpes \n");
+        String [] palavrasProcessadas = processamentoMsg("frase");
+        System.out.println(verificarPalavrasGolpe(processamentoMsg("sim")));
+        System.out.println(verificarInstituicoes(processamentoMsg("gov")));
+        System.out.println(verificarPalavrasUrgencias(processamentoMsg("hoje")));
         Scanner scanner = new Scanner(System.in);
 
         int opcao = 0;
