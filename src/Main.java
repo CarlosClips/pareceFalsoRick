@@ -1,9 +1,15 @@
+import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.Scanner;
 public class Main {
-    public static int VerfiicarPalavras(String msg){
-        String[] palavras = msg.split("[\\s.,!?;:]+");
-        return 5;
+    public static String[] processamentoMsg(String msg){
+        String msgMinuscula = msg.toLowerCase();
+        String semPontuacao = msgMinuscula.replaceAll("\\p{P}", "");
+        String[] palavras = semPontuacao.split(" ");
+        return palavras;
     };
+
+
     public static void main(String[] args) {
         System.out.println("Olá, este é o programa PareceFalso!");
         System.out.println("Este programa tem o intuito de te ajudar e auxiliar para não cair em golpes \n");
