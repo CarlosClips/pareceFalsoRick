@@ -38,12 +38,47 @@ public class VerificadorIA {
 
     }
     private static String montarPrompt(String mensagem) {
-        return "Você é um analista de segurança digital. Analise a mensagem abaixo e responda em"
-        + "português, de forma curta e objetiva, sobre:\n"
-        + "1) Erros de ortografia/gramática incomuns (comuns em golpes)\n"
-        + "2) Uso excessivo ou estranho de emojis\n"
-        + "3) Uma nota de 0 a 10 de quão suspeita a escrita parece ser um golpe\n\n"
-        + "Mensagem: \"" + mensagem + "\"\n";
+        return "Você é um especialista em segurança digital e detecção de golpes.\n\n"
+
+                + "Analise a mensagem considerando o CONTEXTO COMPLETO e não apenas palavras isoladas.\n"
+                + "Um pedido de PIX, CPF, e-mail ou qualquer outro dado NÃO caracteriza um golpe por si só.\n"
+                + "Considere como suspeitos apenas quando houver contexto de fraude, manipulação ou engenharia social.\n\n"
+
+                + "Verifique os seguintes pontos:\n"
+                + "- Linguagem alarmista ou senso de urgência.\n"
+                + "- Pedido incomum de dados pessoais, bancários, senhas ou códigos.\n"
+                + "- Pedido de PIX, transferência ou dinheiro acompanhado de pressão ou justificativa suspeita.\n"
+                + "- Links suspeitos ou incentivo para clicar em páginas desconhecidas.\n"
+                + "- Tentativa de se passar por banco, empresa, governo ou outra instituição.\n"
+                + "- Erros incomuns de ortografia ou gramática.\n"
+                + "- Uso exagerado de emojis, letras maiúsculas ou pontuação.\n"
+                + "- Ameaças, pressão psicológica ou promessas exageradas.\n"
+                + "- Outros indícios comuns de golpes digitais.\n\n"
+
+                + "Classifique seguindo estas regras:\n"
+                + "- Provavelmente legítima: nenhum indício relevante de golpe.\n"
+                + "- Pouco suspeita: apenas um ou dois sinais fracos.\n"
+                + "- Suspeita: vários sinais moderados de golpe.\n"
+                + "- Parece falso Rick: fortes evidências de tentativa de golpe ou engenharia social.\n\n"
+
+                + "Responda APENAS neste formato:\n\n"
+
+                + "Pontos encontrados:\n"
+                + "- ponto 1\n"
+                + "- ponto 2\n\n"
+
+                + "Classificação: Provavelmente legítima | Pouco suspeita | Suspeita | Parece falso Rick\n\n"
+
+                + "Regras importantes:\n"
+                + "- Seja objetivo.\n"
+                + "- Responda em no máximo 5 linhas.\n"
+                + "- Não explique seu raciocínio.\n"
+                + "- Não faça introduções.\n"
+                + "- Não dê dicas.\n"
+                + "- Não use markdown.\n"
+                + "- Se não houver nenhum indício relevante, escreva 'Nenhum indício relevante encontrado.'\n\n"
+
+                + "Mensagem: \"" + mensagem + "\"";
     }
 
     private static String montarCorpoRequisicao(String prompt) {

@@ -90,11 +90,10 @@ public class Main {
                     System.out.println("Opção 1 - Indentificar mensagem suspeita de golpe");
                     System.out.print("Digite a mensagem que você acha suspeita: ");
                     String mnsg = scanner.nextLine();
-                    analiseDeRisco(mnsg);
 
-                    System.out.println("\nConsultando a IA para análise de escrita/emojis...");
+                    System.out.println("\nAnalisando...");
                     String analiseIA = VerificadorIA.analisarMensagem(mnsg);
-                    System.out.println("=== Análise da IA ===");
+                    System.out.println("=== Análise da mensagem ===");
                     System.out.println(analiseIA);
                     break;
 
