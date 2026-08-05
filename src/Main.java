@@ -68,8 +68,6 @@ public class Main {
     }
 
 
-
-
     public static void main(String[] args) {
         System.out.println("Olá, este é o programa PareceFalso!");
         System.out.println("Este programa tem o intuito de te ajudar e auxiliar para não cair em golpes \n");
