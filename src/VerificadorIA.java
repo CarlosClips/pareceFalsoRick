@@ -35,7 +35,7 @@ public class VerificadorIA {
         } catch (Exception e) {
             return "IA indisponível no momento (Ollama não respondeu) Análise por palavras-chave permance ativa.";
         }
-        }
+
     }
     private static String montarPrompt(String mensagem) {
         return "Você é um analista de segurança digital. Analise a mensagem abaixo e responda em"
@@ -43,7 +43,7 @@ public class VerificadorIA {
         + "1) Erros de ortografia/gramática incomuns (comuns em golpes)\n"
         + "2) Uso excessivo ou estranho de emojis\n"
         + "3) Uma nota de 0 a 10 de quão suspeita a escrita parece ser um golpe\n\n"
-        + "Mensagem: \"" + mensagem + "\"";
+        + "Mensagem: \"" + mensagem + "\"\n";
     }
 
     private static String montarCorpoRequisicao(String prompt) {
@@ -62,6 +62,10 @@ public class VerificadorIA {
     private static String extrairCampoResponse(String jsonBody) {
         String chave = "\"response\":\"";
         int inicio = jsonBody.indexOf(chave);
+        if (inicio == -1) return "Não foi possível interpretar a resposta da IA.";
+
+        inicio += chave.length();
+        int fim = jsonBody.indexOf("\",\"done\"", inicio);
         if (fim == -1) fim = jsonBody.length();
 
         return jsonBody.substring(inicio, fim)

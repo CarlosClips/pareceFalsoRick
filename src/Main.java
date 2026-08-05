@@ -57,13 +57,13 @@ public class Main {
         }
 
         if (contador <= 2) {
-            System.out.println("Provavelmente legítima");
+            System.out.println("Classificação: Provavelmente legítima");
         } else if (contador <= 6) {
-            System.out.println("Pouco Suspeita");
+            System.out.println("Classificação: Pouco Suspeita");
         } else if (contador <= 11) {
-            System.out.println("Suspeita");
+            System.out.println("Classificação: Suspeita");
         } else {
-            System.out.println("Provavelmente golpe");
+            System.out.println("Classificação: Provavelmente golpe");
         }
     }
 
@@ -91,8 +91,12 @@ public class Main {
                     System.out.print("Digite a mensagem que você acha suspeita: ");
                     String mnsg = scanner.nextLine();
                     analiseDeRisco(mnsg);
-                    break;
 
+                    System.out.println("\nConsultando a IA para análise de escrita/emojis...");
+                    String analiseIA = VerificadorIA.analisarMensagem(mnsg);
+                    System.out.println("=== Análise da IA ===");
+                    System.out.println(analiseIA);
+                    break;
 
                 case 2:
                     System.out.println("Opção 2 - Indentificar URL suspeita de golpe");
